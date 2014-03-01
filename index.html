@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title></title>
+        <link rel='stylesheet' type='text/css' href='style.css'/>
+        <script type='text/javascript' src="Chart.js"></script>
+        <script type='text/javascript' src="script.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	</head>
+	<body>
+        <canvas id="myChart" width="200" height="200"></canvas>
+        <input type="text" id="ipt">
+        <input type="text" id="ipt2">
+        <input type="text" id="ipt3">
+        <input type="text" id="ipt4">
+        <input type="button" value="Click" id="btn">
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                 $('#btn').click(function(){
+                    var bar_1 = $('#ipt').val();
+                    var bar_2 = $('#ipt2').val();
+                    var bar_3 = $('#ipt3').val();
+                    var bar_4 = $('#ipt4').val();
+                    function Bar (value, color){
+                        this.value = value;
+                        this.color = color;
+                    };
+                    var doughnutData = new Array();
+                    doughnutData[0] = new Bar(bar_1, "#F38630");
+                    doughnutData[1] = new Bar(bar_2, "#E0E4CC");
+                    doughnutData[2] = new Bar(bar_3, "#69D2E7");
+                    doughnutData[3] = new Bar(bar_4, "#21323D");
+        
+                    var ctx = $("#myChart").get(0).getContext("2d");
+                    var myNewChart = new Chart(ctx);
+                    new Chart(ctx).Pie(doughnutData);
+                 })
+            });
+        </script>
+            
+           
+	</body>
+</html>
